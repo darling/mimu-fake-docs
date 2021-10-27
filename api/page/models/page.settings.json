@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pages",
+  "info": {
+    "name": "Page",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Title"
+    },
+    "body": {
+      "type": "richtext"
+    },
+    "next": {
+      "model": "page",
+      "via": "prev"
+    },
+    "prev": {
+      "model": "page",
+      "via": "next"
+    },
+    "categories": {
+      "via": "pages",
+      "collection": "categories"
+    }
+  }
+}
